@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import "../styles/Signup.css";
 import { Link, Outlet } from 'react-router-dom';
 import navLogo from "../assets/Group 9283.svg";
-import frame from "../assets/divider.png"
+import frame from "../assets/Divider.png"
 
 const Signup = () => {
   const navigateToGoogle = () => {
@@ -55,7 +55,7 @@ const Signup = () => {
       <Button variant="primary" type="submit" className="sign-in-btn w-100">
         Sign Up
       </Button>
-       <img src={frame} alt="divider" className='mt-3 w-100' />
+       <img src={frame} alt="frame-divider" className='mt-3 w-100' />
        <button className='btn-2 w-100 mt-3' type='submit' onClick={navigateToGoogle}>
               <svg
                 width='23'
