@@ -15,7 +15,7 @@
 }
 
 /* Nav */
-nav h2{
+nav h2, .logo-text{
     font-family: var(--ff-sansita);
     font-weight: 700;
     font-size: 28.33px;
@@ -37,10 +37,10 @@ nav h1{
     font-weight: 500;
     font-size: 20px;
 }
-.login-link{
+.login-link, .sign-up-text{
     color: var(--purple);
 }
-.sign-up-btn{
+.sign-up-btn, .sign-in-btn{
     background-color: var(--purple);
     border-radius: 8px;
     border: none;
@@ -73,4 +73,5 @@ nav h1{
     .sign-in-container, .sign-up-container{
         background-image: none;
     }
+    
 }

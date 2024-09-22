@@ -1,0 +1,24 @@
+@font-face{
+    font-family: newrial-gotesk;
+    src: url("./assets/fonts/Fontspring-DEMO-neurialgrotesk-regular.otf");
+}
+
+.form-container{
+    background-color: white;
+    width: 100%;
+    max-width: 642px;
+    padding: 3rem 5rem;
+    border-radius: 15px;
+    font-family: newrial-gotesk;
+}
+.btn-2{
+    width: 100%;
+    max-width: 482px;
+    height: 64px;
+    border-radius: 15px;
+}
+.login-head{
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 33.6px;
+}
