@@ -11,6 +11,7 @@
     border-radius: 15px;
     font-family: newrial-gotesk;
 }
+
 .btn-2{
     width: 100%;
     max-width: 482px;
@@ -21,4 +22,9 @@
     font-weight: 700;
     font-size: 28px;
     line-height: 33.6px;
+}
+
+@media(max-width:765px){
+    
+
 }

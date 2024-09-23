@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <>
     <main className='sign-in-container'>
-    <nav className='d-none d-lg-block'>
+    <nav>
         <div className='text-decoration-none d-flex gap-2 p-5'>
           <Link to='/'>
             <img src={navLogo} alt='company-logo' />
@@ -22,11 +22,13 @@ const Login = () => {
         </div>
       </nav>
 
-    <section className='container d-flex flex-column justify-content-center align-items-center'>
+    <section className='container d-flex flex-column justify-content-center align-items-center login-sec'>
       <div className='form-container d-flex flex-column'>
+      <form className=''>
+        <div className=''>
       <h2 className='login-head'>Welcome Back</h2>
       <p>Fill in your information to access your account.</p>
-      <form >
+        </div>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
@@ -40,9 +42,10 @@ const Login = () => {
         <Form.Check type="checkbox" label="Remember me" />
         <Link className='text-danger text-decoration-none'> Forgot Password</Link>
       </Form.Group>
-      <Button variant="primary" type="submit" className="sign-in-btn w-100">
-        Sign In
-      </Button>
+      <div>
+        <button type='submit' className='sign-in-btn w-100 text-white'>
+          Sign In
+        </button>
        <img src={frame} alt="frame-divider" className='mt-3 w-100'/>
        <button className='btn-2 w-100 mt-3' type='submit' onClick={navigateToGoogle}>
               <svg
@@ -75,6 +78,7 @@ const Login = () => {
 
 
        <p className='mt-3'>Don't have an account ? <Link to="/auth/signup" className='text-decoration-none sign-up-text'>Sign Up</Link> </p>
+      </div>
       </form>
       </div>
     </section>

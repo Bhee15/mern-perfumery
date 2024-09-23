@@ -13,7 +13,7 @@ const Signup = () => {
   return (
     <>
     <main className='sign-up-container'>
-    <nav className='d-none d-lg-block'>
+    <nav>
         <div className='text-decoration-none d-flex gap-2 p-5'>
           <Link to='/'>
             <img src={navLogo} alt='company-logo' />
@@ -27,6 +27,7 @@ const Signup = () => {
       <h2 className='sign-up-head'>Get Started</h2>
       <p>Lets get started by filling out the information below</p>
       <form >
+        <div className='d-flex justify-content-between'>
       <Form.Group className="mb-3" controlId="formBasicFirstName">
         <Form.Label>First Name</Form.Label>
         <Form.Control type="text" placeholder="Enter name" />
@@ -35,6 +36,7 @@ const Signup = () => {
         <Form.Label>Last Name</Form.Label>
         <Form.Control type="text" placeholder="Enter name" />
       </Form.Group>
+        </div>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
@@ -52,9 +54,10 @@ const Signup = () => {
         <Form.Check type="checkbox"/>
         <Form.Label> I agree to <span>Terms of Service</span> and <span>Privacy Policies</span></Form.Label>
       </Form.Group>
-      <Button variant="primary" type="submit" className="sign-in-btn w-100">
-        Sign Up
-      </Button>
+      <div>
+       <button type='submit' className='sign-up-btn w-100 text-white'>
+          Sign Up
+        </button>
        <img src={frame} alt="frame-divider" className='mt-3 w-100' />
        <button className='btn-2 w-100 mt-3' type='submit' onClick={navigateToGoogle}>
               <svg
@@ -85,6 +88,7 @@ const Signup = () => {
               Continue with Google
             </button>
        <p className='mt-3'>Already have an account ? <Link to="/auth/login" className='text-decoration-none login-link'>Sign In</Link></p>
+      </div>
       </form>
       </div>
     </section>
