@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import "../styles/Signup.css";
+import "../styles/Login.css";
 import { Link, Outlet } from 'react-router-dom';
 import navLogo from "../assets/Group 9283.svg";
 import frame from "../assets/Divider.png"
@@ -12,22 +12,22 @@ const Signup = () => {
   };
   return (
     <>
-    <main className='sign-up-container'>
+    <main className='main-container'>
     <nav>
         <div className='text-decoration-none d-flex gap-2 p-5'>
           <Link to='/'>
             <img src={navLogo} alt='company-logo' />
           </Link>
-          <h2 className='d-none d-lg-block head-text'>Perfume House</h2>
+          <h2 className='d-none d-lg-block logo-text'>Perfume House</h2>
         </div>
       </nav>
 
     <section className='container d-flex flex-column justify-content-center align-items-center'>
       <div className='form-container d-flex flex-column'>
-      <h2 className='sign-up-head'>Get Started</h2>
+      <h2 className='form-hTag'>Get Started</h2>
       <p>Lets get started by filling out the information below</p>
-      <form >
-        <div className='d-flex justify-content-between'>
+      <form>
+        <div className='d-flex justify-content-lg-between gap-4'>
       <Form.Group className="mb-3" controlId="formBasicFirstName">
         <Form.Label>First Name</Form.Label>
         <Form.Control type="text" placeholder="Enter name" />
@@ -55,7 +55,7 @@ const Signup = () => {
         <Form.Label> I agree to <span>Terms of Service</span> and <span>Privacy Policies</span></Form.Label>
       </Form.Group>
       <div>
-       <button type='submit' className='sign-up-btn w-100 text-white'>
+       <button type='submit' className='btn-1 w-100 text-white'>
           Sign Up
         </button>
        <img src={frame} alt="frame-divider" className='mt-3 w-100' />
@@ -87,7 +87,7 @@ const Signup = () => {
               </svg>
               Continue with Google
             </button>
-       <p className='mt-3'>Already have an account ? <Link to="/auth/login" className='text-decoration-none login-link'>Sign In</Link></p>
+       <p className='mt-3'>Already have an account ? <Link to="/auth/login" className='text-decoration-none link'>Login In</Link></p>
       </div>
       </form>
       </div>
@@ -99,3 +99,4 @@ const Signup = () => {
 }
 
 export default Signup
+

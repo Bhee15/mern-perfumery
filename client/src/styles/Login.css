@@ -7,24 +7,52 @@
     background-color: white;
     width: 100%;
     max-width: 642px;
-    padding: 3rem 5rem;
+    padding: 1rem 5rem;
     border-radius: 15px;
     font-family: newrial-gotesk;
+    align-self: center;
+    padding-top: 2rem;
 }
+
+.form-hTag{
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 33.6px;
+}
+
+/* input[type="checkbox"] {
+    accent-color: var(--purple);
+  } */
+  
+/* .btn-1{
+    background-color: var(--purple);
+    border-radius: 8px;
+    border: none;
+    height: 61px;
+    width: 140px;
+    font-family: newrial-gotesk;
+    font-weight: 500;
+    font-size: 20px;
+} */
 
 .btn-2{
     width: 100%;
     max-width: 482px;
     height: 64px;
     border-radius: 15px;
+    background-color: white;
 }
-.login-head{
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 33.6px;
+.link{
+    color: var(--purple);
 }
 
-@media(max-width:765px){
+@media(max-width:465px){
+    .form-container{
+        padding: 1rem 1rem;
+        width: 100%;
+        max-width: 342px;
+        padding-top: 0;
+    }
     
-
+    
 }
