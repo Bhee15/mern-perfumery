@@ -4,12 +4,26 @@ import Form from 'react-bootstrap/Form';
 import "../styles/Login.css";
 import { Link, Outlet } from 'react-router-dom';
 import navLogo from "../assets/Group 9283.svg";
-import frame from "../assets/Divider.png"
+import frame from "../assets/Divider.png";
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup";
+import { signUpSchema } from '../utils/ValidationSchema';
 
 const Signup = () => {
   const navigateToGoogle = () => {
     window.open('https://www.google.com', '_blank');
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(signUpSchema),
+  })
+
+  const onSubmit = (data) => console.log(data)
+
   return (
     <>
     <main className='main-container'>
@@ -26,29 +40,36 @@ const Signup = () => {
       <div className='form-container d-flex flex-column'>
       <h2 className='form-hTag'>Get Started</h2>
       <p>Lets get started by filling out the information below</p>
-      <form>
+
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className='d-flex justify-content-lg-between gap-4'>
       <Form.Group className="mb-3" controlId="formBasicFirstName">
         <Form.Label>First Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter name" />
+        <Form.Control type="text" placeholder="Enter name" {...register("firstName")} />
+        <p>{errors.firstName?.message}</p>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicLastName">
         <Form.Label>Last Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter name" />
+        <Form.Control type="text" placeholder="Enter name" {...register("lastName")} />
+        <p>{errors.lastName?.message}</p> 
       </Form.Group>
         </div>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control type="email" placeholder="Enter email" {...register("email")} />
+        <p>{errors.email?.message}</p>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Enter your password" />
+        <Form.Control type="password" placeholder="Enter your password" {...register("password")}/>
+        <p>{errors.password?.message}</p>
+
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Confirm password</Form.Label>
-        <Form.Control type="password" placeholder="Enter your password" />
+        <Form.Control type="password" placeholder="Enter your password" {...register("confirmPwd")}/>
+        <span className='text-danger'>{errors.confirmPwd?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3 d-flex gap-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox"/>

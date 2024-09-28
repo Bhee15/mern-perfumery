@@ -5,11 +5,25 @@ import "../styles/Login.css";
 import { Link, Outlet } from "react-router-dom";
 import navLogo from "../assets/Group 9283.svg";
 import frame from "../assets/Divider.png";
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup";
+import { signInSchema } from "../utils/ValidationSchema";
 
 const Login = () => {
   const navigateToGoogle = () => {
     window.open("https://www.google.com", "_blank");
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(signInSchema),
+  })
+
+  const onSubmit = (data) => console.log(data)
+
   return (
     <>
       <main className="main-container">
@@ -26,18 +40,20 @@ const Login = () => {
           <div className="form-container d-flex flex-column">
               <h2 className="form-hTag">Welcome Back</h2>
               <p>Fill in your information to access your account.</p>
-            <form>
+              
+            <form onSubmit={handleSubmit(onSubmit)}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control type="email" placeholder="Enter email" {...register("email")}/>
+                <p>{errors.email?.message}</p>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="Enter your password"
-                />
+                  placeholder="Enter your password"  {...register("password")}/>
+                  <p>{errors.password?.message}</p>
               </Form.Group>
               <Form.Group
                 className="mb-3 d-flex justify-content-between gap-5"
