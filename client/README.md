@@ -1,8 +1,56 @@
-# React + Vite
+# MERN stack Ecommerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Back-End Development Languages
 
-Currently, two official plugins are available:
+- Nodejs(Express.js)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Front-End Development Deliverables :
+
+- Web Design
+
+- Website Development
+
+- Web Application
+
+### Front-End Development Languages
+
+- Javascript(ReactJs)
+
+### Front-End Development Skills
+
+- Git And GitHub
+
+- React Bootstrap
+
+- Figma design
+
+## Project description :
+
+This is a simple responsive mern stack ecommerce app which was used to teach my trainees how to build MERN stack app.
+
+The project displays products and a cart section.
+
+A user can only check out if the user is authenticated(registered).
+
+#### Tools Used
+
+- Npm packages(Toastify)
+
+- React-hook-form
+
+- Bycrypt.js
+
+## Ecommerce Website Preview :
+
+Desktop design:
+<img
+  src="/src/assets/snipping-img for desktop.png"
+  alt="Alt text"
+  title="desktop-view"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+mobile design:
+<img
+  src="/src/assets/snipping-img for mobile.png"
+  alt="Alt text"
+  title="mobile-view"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
