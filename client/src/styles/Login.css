@@ -12,6 +12,7 @@
     font-family: newrial-gotesk;
     align-self: center;
     padding-top: 2rem;
+    position: relative;
 }
 
 .form-hTag{
@@ -34,7 +35,13 @@
     font-weight: 500;
     font-size: 20px;
 } */
-
+.eye{
+    position: absolute;
+    bottom: 21.5rem;
+    left: 32rem;
+    border: none;
+    background-color: none;
+}
 .btn-2{
     width: 100%;
     max-width: 482px;

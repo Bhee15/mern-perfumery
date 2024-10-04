@@ -92,7 +92,7 @@ const Cart = () => {
         </div>
         </div>
         <div className='checkout-btn'>
-          <button className='checkout-btn'>Confirm Order</button>
+          <button className='checkout-btn' type='submit' >Confirm Order</button>
         </div>
     </main>
     </>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "../styles/Login.css";
@@ -8,6 +8,9 @@ import frame from "../assets/Divider.png";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signInSchema } from "../utils/ValidationSchema";
+import { LuEye } from "react-icons/lu";
+import { LuEyeOff } from "react-icons/lu";
+
 
 const Login = () => {
   const navigateToGoogle = () => {
@@ -22,8 +25,14 @@ const Login = () => {
     resolver: yupResolver(signInSchema),
   })
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data) => console.log(data);
 
+  const [password, setPassword] = useState("");
+  const [reveal, setReveal] = useState(false);
+
+  function handleReveal() {
+    reveal ? setReveal(false) : setReveal(true);
+  }
   return (
     <>
       <main className="main-container">
@@ -52,7 +61,8 @@ const Login = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="Enter your password"  {...register("password")}/>
+                  placeholder="Enter your password"  {...register("password")} inputMode={reveal ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)}/>
+                  <button className=" eye" onClick={handleReveal}> {reveal ? <LuEyeOff/> : <LuEye/>} </button>
                   <p>{errors.password?.message}</p>
               </Form.Group>
               <Form.Group
