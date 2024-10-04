@@ -4,7 +4,7 @@ const Cart = () => {
   return (
     <>
     <main className='cart-container border border-1px d-flex flex-column justify-content-center gap-4'>
-        <h1 className='cart mt-3'>My Cart Preview</h1>
+        <h1 className='cart'>My Cart Preview</h1>
         <div className='row gap-3 py-0 my-0 align-items-center'>
           <div className='item-img'>
           <img src="https://res.cloudinary.com/dsa7z1rtg/image/upload/v1727623441/perfume_1_utlw66.png" alt="perfume-1" className='item-img'/>
@@ -82,7 +82,7 @@ const Cart = () => {
           <p className='checkout-head'>Sub Total</p>
           <p className='checkout-price'>50,000</p>
           </div>
-        <div className='checkout d-flex justify-content-between'>
+        <div className='checkout d-flex justify-content-between '>
           <p className='checkout-head'>Delivery</p>
           <p className='checkout-price'>2,000</p>
         </div>
