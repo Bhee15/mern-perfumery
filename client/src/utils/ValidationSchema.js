@@ -28,6 +28,6 @@ export const signInSchema = yup
     password: yup
       .string()
       .required("password is required")
-      .min(8, "min length of password should be at least 8 chrs")
+      .min(8, "min length of password should be at least 8 chrs"),
   })
   .required();

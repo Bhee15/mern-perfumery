@@ -1,11 +1,84 @@
-import React from 'react'
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import ConfirmOrder from './ConfirmOrder';
+// import products from "../product.json"
 
-const Cart = () => {
+const Cart = ({cart,removeItem,calcTotalPrice}) => {
+  const [modalShow, setModalShow] = useState(false)
   return (
     <>
-    <main className='cart-container border border-1px d-flex flex-column justify-content-center gap-4'>
-        <h1 className='cart'>My Cart Preview</h1>
-        <div className='row gap-3 py-0 my-0 align-items-center'>
+    <main className='cart-container d-flex flex-column justify-content-center gap-2'>
+        <h2>My Cart Preview</h2>
+        <div>
+          {cart.length === 0 && (
+            <div>
+            <h3 className='fs-2 fst-italic fw-bolder text-danger'>No item(s) in the cart</h3>
+            <p className='fw-bolder text-success fs-4'>Keep shopping...</p>
+            </div>
+            
+          )}
+        </div>
+        {cart.map((cart) => {
+          const { id, title, price, button, image } = cart;
+          return (
+            <div
+              className='cart-details d-flex gap-5 gap-lg-3 align-items-center cart py-0 my-0'
+              key={id}
+            >
+              <div className='cart-1'>
+                <img className='cart-img' src={image} alt='product image' />
+              </div>
+              <div className='cart-2 d-flex flex-column m-0 p-0 ps-3'>
+                <h4 className='cart-title'>{title}</h4>
+                <div className='d-flex gap-2 align-items-center'>
+                  <button className='subtract-cart'>-</button>
+                  <p className='pt-3 cart-number'>1</p>
+                  <button className='add-cart text-center'>+</button>
+                </div>
+                <div className='d-flex justify-content-between m-0'>
+                  <p className='cart-price'>N{price}</p>
+                  <button className='remove-cart' onClick={()=>removeItem(id)}>remove</button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+
+        {cart.length === 0 ? (
+          ""
+        ) : (
+          <>
+        <div className='checkout-container'>
+          <div className='checkout'>
+            <p className='checkout-title'>Sub Total</p>
+            <p className='checkout-price'>18,000</p>
+          </div>
+          <div className='checkout'>
+            <p className='checkout-title'>Delivery</p>
+            <p className='checkout-price'>8,000</p>
+          </div>
+          <div className='checkout'>
+            <p className='checkout-title'>Total</p>
+            <p className='checkout-price'> N{calcTotalPrice.toLocaleString()} </p>
+          </div>
+        </div>
+        <button className='w-100 checkout-button' onClick={() => setModalShow(true)}>
+          Confirm Order{' '}
+        </button>
+          </>
+        )}
+
+        {/* <ConfirmOrder show={modalShow} onHide={() => setModalShow(false)} /> */}
+
+            {/* <main className='cart-container border border-1px d-flex flex-column justify-content-center gap-4'> */}
+            {/* {cart.map((cartItem)=> {
+              const {id, title, price, button, image } = cartItem;
+              return(
+
+              )
+            })} */}
+        {/* <div className='row gap-3 py-0 my-0 align-items-center'>
           <div className='item-img'>
           <img src="https://res.cloudinary.com/dsa7z1rtg/image/upload/v1727623441/perfume_1_utlw66.png" alt="perfume-1" className='item-img'/>
           </div>
@@ -75,8 +148,8 @@ const Cart = () => {
           <button className='remove-btn border border-danger border-1px'>Remove</button>
           </div>
           </div>
-        </div>
-
+        </div> */}
+{/* 
         <div className='checout-container'>
           <div className='checkout d-flex justify-content-between'>
           <p className='checkout-head'>Sub Total</p>
@@ -92,8 +165,13 @@ const Cart = () => {
         </div>
         </div>
         <div className='checkout-btn'>
-          <button className='checkout-btn' type='submit' >Confirm Order</button>
+          <button className='checkout-btn' onClick={() => setModalShow(true)}>Confirm Order</button>
         </div>
+        <Button className='checkout-btn' onClick={() => setModalShow(true)}>
+        Launch vertically centered modal
+      </Button>
+        <ConfirmOrder show={modalShow} onHide={() => setModalShow(false)}/> */}
+
     </main>
     </>
   )

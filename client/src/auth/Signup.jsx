@@ -8,6 +8,8 @@ import frame from "../assets/Divider.png";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpSchema } from '../utils/ValidationSchema';
+import { LuEye } from "react-icons/lu";
+import { LuEyeOff } from "react-icons/lu";
 
 const Signup = () => {
   const navigateToGoogle = () => {
@@ -57,13 +59,13 @@ const Signup = () => {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" {...register("email")} />
-        <p>{errors.email?.message}</p>
+        <p className='text-danger'>{errors.email?.message}</p>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Enter your password" {...register("password")}/>
-        <p>{errors.password?.message}</p>
+        <p className='text-danger'>{errors.password?.message}</p>
 
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">

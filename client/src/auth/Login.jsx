@@ -13,6 +13,9 @@ import { LuEyeOff } from "react-icons/lu";
 
 
 const Login = () => {
+  const [password, setPassword] = useState("");
+  const [reveal, setReveal] = useState(false);
+  
   const navigateToGoogle = () => {
     window.open("https://www.google.com", "_blank");
   };
@@ -27,8 +30,6 @@ const Login = () => {
 
   const onSubmit = (data) => console.log(data);
 
-  const [password, setPassword] = useState("");
-  const [reveal, setReveal] = useState(false);
 
   function handleReveal() {
     reveal ? setReveal(false) : setReveal(true);
@@ -54,16 +55,16 @@ const Login = () => {
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" {...register("email")}/>
-                <p>{errors.email?.message}</p>
+                <p className="text-danger">{errors.email?.message}</p>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="Enter your password"  {...register("password")} inputMode={reveal ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)}/>
-                  <button className=" eye" onClick={handleReveal}> {reveal ? <LuEyeOff/> : <LuEye/>} </button>
-                  <p>{errors.password?.message}</p>
+                  placeholder="Enter your password"  {...register("password")} inputMode={reveal ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} className="password"/>
+                  <p className="text-danger">{errors.password?.message}</p>
+                  <button className="eye" onClick={handleReveal}> {reveal ? <LuEye/> : <LuEyeOff/>} </button>
               </Form.Group>
               <Form.Group
                 className="mb-3 d-flex justify-content-between gap-5"
