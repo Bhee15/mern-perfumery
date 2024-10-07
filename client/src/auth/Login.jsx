@@ -8,8 +8,8 @@ import frame from "../assets/Divider.png";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signInSchema } from "../utils/ValidationSchema";
-import { LuEye } from "react-icons/lu";
-import { LuEyeOff } from "react-icons/lu";
+// import { LuEye } from "react-icons/lu";
+// import { LuEyeOff } from "react-icons/lu";
 
 
 const Login = () => {
@@ -32,11 +32,12 @@ const Login = () => {
 
   // function handleReveal() {
   //   reveal ? setReveal(false) : setReveal(true);
+  // }
   return (
     <>
       <main className="main-container">
         <nav>
-          <div className="text-decoration-none d-flex gap-2 p-5">
+          <div className="text-decoration-none d-flex gap-2 p-4 p-lg-2">
             <Link to="/">
               <img src={navLogo} alt="company-logo" />
             </Link>
@@ -78,10 +79,10 @@ const Login = () => {
                 </button>
                 <img src={frame} alt="frame-divider" className="mt-3 w-100" />
                 <button
-                  className="btn-2 w-100 mt-3"
+                  className="btn-2 w-100 mt-2"
                   type="submit"
                   onClick={navigateToGoogle}
-                  >
+                >
                   <svg
                     width="23"
                     height="23"
@@ -89,7 +90,7 @@ const Login = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     className="me-2"
-                    >
+                  >
                     <path
                       d="M22.2861 9.44575H21.4V9.4001H11.5V13.8001H17.7167C16.8097 16.3614 14.3727 18.2001 11.5 18.2001C7.85515 18.2001 4.9 15.2449 4.9 11.6001C4.9 7.95525 7.85515 5.0001 11.5 5.0001C13.1825 5.0001 14.7131 5.6348 15.8786 6.67155L18.9899 3.5602C17.0253 1.72925 14.3974 0.600098 11.5 0.600098C5.42525 0.600098 0.5 5.52535 0.5 11.6001C0.5 17.6748 5.42525 22.6001 11.5 22.6001C17.5748 22.6001 22.5 17.6748 22.5 11.6001C22.5 10.8625 22.4241 10.1426 22.2861 9.44575Z"
                       fill="#FFC107"
@@ -101,11 +102,11 @@ const Login = () => {
                     <path
                       d="M11.5 22.6001C14.3413 22.6001 16.923 21.5128 18.875 19.7445L15.4705 16.8636C14.3661 17.7002 12.9933 18.2001 11.5 18.2001C8.63893 18.2001 6.20957 16.3758 5.29437 13.8298L1.70728 16.5936C3.52778 20.1559 7.22487 22.6001 11.5 22.6001Z"
                       fill="#4CAF50"
-                      />
+                    />
                     <path
                       d="M22.286 9.4458H21.4V9.40015H11.5V13.8001H17.7167C17.2811 15.0305 16.4896 16.0914 15.4688 16.8642C15.4693 16.8636 15.4699 16.8636 15.4704 16.8631L18.875 19.744C18.6341 19.9629 22.5 17.1001 22.5 11.6001C22.5 10.8626 22.4241 10.1426 22.286 9.4458Z"
                       fill="#1976D2"
-                      />
+                    />
                   </svg>
                   Continue with Google
                 </button>
@@ -124,7 +125,6 @@ const Login = () => {
       <Outlet />
     </>
   );
-}
-
+};
 
 export default Login;

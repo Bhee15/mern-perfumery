@@ -33,10 +33,10 @@ const Product = ({cart,setCart,handleAddToCart}) => {
                 </div>
                 <Card.Text className="d-flex align-items-center gap-2 pt-2">
                   <span className="card-price">
-                  #{price}
+                  N{price}
                   </span>
                   <span className="card-discount-price text-decoration-line-through">
-                    #{discountPrice}
+                    N{discountPrice}
                   </span>
                 </Card.Text>
                 <button disabled={isItemInCart(id)} onClick={()=>handleAddToCart(product)} className="add-to-cart-btn w-100"> {isItemInCart(id) ? "Added to Cart" : "Add to Cart"}</button>

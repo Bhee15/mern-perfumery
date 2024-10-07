@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ConfirmOrder from './ConfirmOrder';
-// import products from "../product.json"
+import products from "../product.json"
 
 const Cart = ({cart,removeItem,calcTotalPrice}) => {
   const [modalShow, setModalShow] = useState(false)
   return (
     <>
     <main className='cart-container d-flex flex-column justify-content-center gap-2'>
-        <h2>My Cart Preview</h2>
+        <h2 className='cart'>My Cart Preview</h2>
         <div>
           {cart.length === 0 && (
             <div>
@@ -19,26 +19,26 @@ const Cart = ({cart,removeItem,calcTotalPrice}) => {
             
           )}
         </div>
-        {cart.map((cart) => {
-          const { id, title, price, button, image } = cart;
+        {cart.map((cartItem) => {
+          const { id, title, price, button, image } = cartItem;
           return (
             <div
-              className='cart-details d-flex gap-5 gap-lg-3 align-items-center cart py-0 my-0'
+              className='row gap-3 align-items-center py-0 my-0 mb-3'
               key={id}
             >
-              <div className='cart-1'>
-                <img className='cart-img' src={image} alt='product image' />
+              <div className='item-img'>
+                <img className='item-img' src={image} alt='product image' />
               </div>
-              <div className='cart-2 d-flex flex-column m-0 p-0 ps-3'>
-                <h4 className='cart-title'>{title}</h4>
+              <div className='col item-detail d-flex flex-column m-0 p-0 ps-3'>
+                <h4 className='item-title fw-bold'>{title}</h4>
                 <div className='d-flex gap-2 align-items-center'>
-                  <button className='subtract-cart'>-</button>
-                  <p className='pt-3 cart-number'>1</p>
-                  <button className='add-cart text-center'>+</button>
+                  <button className='subtract-item-btn'>-</button>
+                  <p className='item-number'>1</p>
+                  <button className='add-item-btn'>+</button>
                 </div>
-                <div className='d-flex justify-content-between m-0'>
-                  <p className='cart-price'>N{price}</p>
-                  <button className='remove-cart' onClick={()=>removeItem(id)}>remove</button>
+                <div className='d-flex gap-4 m-0 mt-1'>
+                  <p className='item-price'>N{price}</p>
+                  <button className='remove-btn' onClick={()=>removeItem(id)}>remove</button>
                 </div>
               </div>
             </div>
@@ -50,6 +50,55 @@ const Cart = ({cart,removeItem,calcTotalPrice}) => {
         ) : (
           <>
         <div className='checkout-container'>
+          <div className='checkout d-flex justify-content-between'>
+            <p className='checkout-head'>Sub Total</p>
+            <p className='checkout-price'>18,000</p>
+          </div>
+          <div className='checkout d-flex justify-content-between'>
+            <p className='checkout-head'>Delivery</p>
+            <p className='checkout-price'>8,000</p>
+          </div>
+          <div className='checkout d-flex justify-content-between'>
+            <p className='checkout-head'>Total</p>
+            <p className='checkout-price'> N {calcTotalPrice.toLocaleString()} </p>
+          </div>
+        </div>
+        <button className='w-100 checkout-btn' onClick={() => setModalShow(true)}>
+          Confirm Order{' '}
+        </button>
+          </>
+        )}
+        {/* < */}
+
+        {/* Tobi */}
+        {/* <main className='cart-container d-flex flex-column justify-content-center gap-2'>
+        <h2>My Cart Preview</h2>
+        {carts.map((cart) => {
+          const { id, title, price, button, image } = cart;
+          return (
+            <div
+              className='cart-details d-flex gap-5 gap-lg-3 align-items-center cart py-0 my-0'
+              key={id}
+            >
+              <div className='cart-1'>
+                <img className='cart-img' src={image} alt='product image' />
+              </div>
+              <div className='cart-2 d-flex flex-column m-0 p-0'>
+                <h4 className='cart-title'>{title}</h4>
+                <div className='d-flex gap-2 align-items-center'>
+                  <button className='subtract-cart'>-</button>
+                  <p className='pt-3 cart-number'>1</p>
+                  <button className='add-cart text-center'>+</button>
+                </div>
+                <div className='d-flex justify-content-between m-0'>
+                  <p className='cart-price'>N{price}</p>
+                  <button className='remove-cart'>{button}</button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+        <div className='checkout-container'>
           <div className='checkout'>
             <p className='checkout-title'>Sub Total</p>
             <p className='checkout-price'>18,000</p>
@@ -60,15 +109,18 @@ const Cart = ({cart,removeItem,calcTotalPrice}) => {
           </div>
           <div className='checkout'>
             <p className='checkout-title'>Total</p>
-            <p className='checkout-price'> N{calcTotalPrice.toLocaleString()} </p>
+            <p className='checkout-price'>36,000</p>
           </div>
         </div>
         <button className='w-100 checkout-button' onClick={() => setModalShow(true)}>
           Confirm Order{' '}
         </button>
-          </>
-        )}
 
+        <ConfirmOrder show={modalShow} onHide={() => setModalShow(false)} />
+      </main> */}
+
+
+      {/* bhee */}
         {/* <ConfirmOrder show={modalShow} onHide={() => setModalShow(false)} /> */}
 
             {/* <main className='cart-container border border-1px d-flex flex-column justify-content-center gap-4'> */}

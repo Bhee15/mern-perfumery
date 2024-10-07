@@ -8,8 +8,8 @@ import frame from "../assets/Divider.png";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpSchema } from '../utils/ValidationSchema';
-import { LuEye } from "react-icons/lu";
-import { LuEyeOff } from "react-icons/lu";
+// import { LuEye } from "react-icons/lu";
+// import { LuEyeOff } from "react-icons/lu";
 
 const Signup = () => {
   const navigateToGoogle = () => {
@@ -29,7 +29,7 @@ const Signup = () => {
     <>
     <main className='main-container'>
     <nav>
-        <div className='text-decoration-none d-flex gap-2 p-5'>
+        <div className='text-decoration-none d-flex gap-2 p-4 p-lg-2'>
           <Link to='/'>
             <img src={navLogo} alt='company-logo' />
           </Link>
@@ -44,24 +44,24 @@ const Signup = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className='d-flex justify-content-lg-between gap-4'>
-      <Form.Group className="mb-3" controlId="formBasicFirstName">
+      <Form.Group controlId="formBasicFirstName">
         <Form.Label>First Name</Form.Label>
         <Form.Control type="text" placeholder="Enter name" {...register("firstName")} />
         <p>{errors.firstName?.message}</p>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicLastName">
+      <Form.Group controlId="formBasicLastName">
         <Form.Label>Last Name</Form.Label>
         <Form.Control type="text" placeholder="Enter name" {...register("lastName")} />
         <p>{errors.lastName?.message}</p> 
       </Form.Group>
         </div>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group  controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" {...register("email")} />
         <p className='text-danger'>{errors.email?.message}</p>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group  controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" placeholder="Enter your password" {...register("password")}/>
         <p className='text-danger'>{errors.password?.message}</p>
@@ -80,8 +80,8 @@ const Signup = () => {
        <button type='submit' className='btn-1 w-100 text-white'>
           Sign Up
         </button>
-       <img src={frame} alt="frame-divider" className='mt-3 w-100' />
-       <button className='btn-2 w-100 mt-3' type='submit' onClick={navigateToGoogle}>
+       <img src={frame} alt="frame-divider" className='mt-2 w-100' />
+       <button className='btn-2 w-100 mt-2' type='submit' onClick={navigateToGoogle}>
               <svg
                 width='23'
                 height='23'
@@ -109,7 +109,7 @@ const Signup = () => {
               </svg>
               Continue with Google
             </button>
-       <p className='mt-3'>Already have an account ? <Link to="/auth/login" className='text-decoration-none link'>Login In</Link></p>
+       <p className='mt-3'>Already have an account ? <Link to="/auth/login" className='text-decoration-none link'>Log In</Link></p>
       </div>
       </form>
       </div>
