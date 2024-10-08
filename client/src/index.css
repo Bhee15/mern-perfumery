@@ -6,7 +6,7 @@
 
 @font-face{
     font-family: newrial-gotesk;
-    src: url("./assets/fonts/Fontspring-DEMO-neurialgrotesk-regular.otf");
+    src: url("../src/fonts/Fontspring-DEMO-neurialgrotesk-regular.otf");
 }
 :root{
     --ff-sansita: "Sansita", sans-serif;
@@ -157,20 +157,6 @@ nav h1{
     font-weight: 400;
     font-family: var(--ff-poppins);
 }
-/* .add-cart,
-  .subtract-cart {
-    width: 18.61px;
-    height: 18.61px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-    margin: 0;
-    padding: 0;
-    line-height: 30px;
-    border: none;
-    color: white;
-  } */
 .item-number{
     width: 18.61px;
     height: 18.61px;
@@ -238,6 +224,90 @@ nav h1{
     font-family: newrial-gotesk;
     background-color: var(--purple);
 }
+
+/* confirm-order modal */
+.custom-modal-width{
+  max-width: 100%;
+  padding-top: 29px;
+  padding-left: 44px;
+  font-family: newrial-gotesk;
+}
+
+.confirmation{
+  width: 82px;
+  height: 82px;
+}
+
+.confirmation-confirmed{
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.confirmation-title{
+  font-weight: 500;
+  font-size: 15.97px;
+  color: rgba(103, 103, 103, 1);
+  ;
+}
+
+.gateway-container{
+  width: 423px;
+  height: 76.76px;
+}
+
+.gateway-title{
+  font-weight: 500;
+  font-size: 14.7px;
+}
+
+.gateway-quantity{
+  font-weight: 500;
+  font-size: 14.7px;
+  color: var(--purple);
+}
+
+.gateway-price{
+  font-weight: 500;
+  font-size: 14.7px;
+}
+
+.gateway-amount{
+  width: 61px;
+  height: 20px;
+  font-weight: 700;
+  font-size: 16.33px;
+  color: rgba(0, 32, 17, 1);
+  ;
+}
+
+.gateway-total{
+  /* width: 87px;
+  height: 20px; */
+  font-weight: 500;
+  font-size: 16.33px;
+  color: rgba(117, 117, 117, 1);
+  ;
+}
+
+.gateway-total-price{
+  width: 76px;
+  height: 25px;
+  font-weight: 700;
+  font-size: 21.23px;
+  color: rgba(0, 32, 17, 1);
+}
+
+.gateway-button{
+  height: 60px;
+  border: none;
+  border-radius: 15px;
+  padding: 7px 10px;
+  background-color: var(--purple);
+  font-size: 22px;
+  font-weight: 500;
+  color: white;
+}
+
 
 /* .cart {
     width: 100%;
@@ -445,6 +515,11 @@ nav h1{
 .cart-container{
     width: 98%;
     margin-top: 50px;
+}
+
+/* modal */
+.custom-modal-width{
+  padding: 0;
 }
 }
 

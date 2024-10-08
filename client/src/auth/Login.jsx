@@ -51,19 +51,19 @@ const Login = () => {
               <p>Fill in your information to access your account.</p>
               
             <form onSubmit={handleSubmit(onSubmit)}>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group className="mb-2" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" {...register("email")}/>
                 <span className="text-danger">{errors.email?.message}</span>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-2" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Enter your password" {...register("password")} /> 
-                  {/* inputMode={reveal ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} className="password" */}
                   <span className="text-danger">{errors.password?.message}</span>
                   {/* <button className="eye" onClick={handleReveal}> {reveal ? <LuEye/> : <LuEyeOff/>} </button> */}
               </Form.Group>
+              {/* inputMode={reveal ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} className="password"  */}
               <Form.Group
                 className="mb-3 d-flex justify-content-between gap-5"
                 controlId="formBasicCheckbox"
@@ -77,7 +77,7 @@ const Login = () => {
                 <button type="submit" className="btn-1 w-100 text-white">
                   Sign In
                 </button>
-                <img src={frame} alt="frame-divider" className="mt-3 w-100" />
+                <img src={frame} alt="frame-divider" className="mt-2 w-100" />
                 <button
                   className="btn-2 w-100 mt-2"
                   type="submit"
@@ -111,7 +111,7 @@ const Login = () => {
                   Continue with Google
                 </button>
 
-                <p className="mt-3">
+                <p className="mt-3 ">
                   Don't have an account ?{" "}
                   <Link to="/auth/signup" className="text-decoration-none link">
                     Sign Up

@@ -68,6 +68,7 @@ const Cart = ({cart,removeItem,calcTotalPrice}) => {
         </button>
           </>
         )}
+        <ConfirmOrder show={modalShow} onHide={() => setModalShow(false)} />
         {/* < */}
 
         {/* Tobi */}
