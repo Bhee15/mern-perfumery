@@ -1,10 +1,13 @@
-import React from "react";
+import React,{useContext} from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import ratingImg from "/src/assets/Star.svg";
 import products from "../product.json";
+import CartContext from "../context/CartContext";
 
-const Product = ({cart,setCart,handleAddToCart}) => {
+// const Product = ({handleAddToCart,cart}) => {}
+const Product = () => {
+  const {handleAddToCart,cart} = useContext(CartContext)
   const isItemInCart = (itemId)=> cart.some((product)=>product.id === itemId)
   return (
     <>

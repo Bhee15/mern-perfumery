@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ConfirmOrder from './ConfirmOrder';
-import products from "../product.json"
+import products from "../product.json";
+import CartContext from '../context/CartContext';
 
-const Cart = ({cart,removeItem,calcTotalPrice}) => {
-  const [modalShow, setModalShow] = useState(false)
+// const Cart = ({cart,removeItem,calcTotalPrice,handleIncreaseQuantity,handleDecreaseQuantity}) => {}
+const Cart = () => {
+  const {cart,removeItem,calcTotalPrice,handleIncreaseQuantity,handleDecreaseQuantity} = useContext(CartContext);
+  const [modalShow, setModalShow] = useState(false);
   return (
     <>
     <main className='cart-container d-flex flex-column justify-content-center gap-2'>
@@ -32,9 +35,9 @@ const Cart = ({cart,removeItem,calcTotalPrice}) => {
               <div className='col item-detail d-flex flex-column m-0 p-0 ps-3'>
                 <h4 className='item-title fw-bold'>{title}</h4>
                 <div className='d-flex gap-2 align-items-center'>
-                  <button className='subtract-item-btn'>-</button>
-                  <p className='item-number'>1</p>
-                  <button className='add-item-btn'>+</button>
+                  <button className='subtract-item-btn' onClick={()=>handleDecreaseQuantity(id)}>-</button>
+                  <p className='item-number'> {cartItem.quantity} </p>
+                  <button className='add-item-btn' onClick={()=>handleIncreaseQuantity(id)}>+</button>
                 </div>
                 <div className='d-flex gap-4 m-0 mt-1'>
                   <p className='item-price'>N{price}</p>
