@@ -22,6 +22,7 @@ const ConfirmOrder = (props) => {
             <p className='confirmation-title'>We hope you enjoy your order</p>
           </Modal.Title>
         </Modal.Header>
+        
         <Modal.Body>
           {confirmations.map((confirmation) => {
             const { image, title, quatity, price, amount } = confirmation;
