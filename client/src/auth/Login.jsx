@@ -8,13 +8,12 @@ import frame from "../assets/Divider.png";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signInSchema } from "../utils/ValidationSchema";
-// import { LuEye } from "react-icons/lu";
-// import { LuEyeOff } from "react-icons/lu";
-
+import { LuEye } from "react-icons/lu";
+import { LuEyeOff } from "react-icons/lu";
 
 const Login = () => {
-  // const [password, setPassword] = useState("");
-  // const [reveal, setReveal] = useState(false);
+  const [password, setPassword] = useState("");
+  const [reveal, setReveal] = useState(false);
   
   const navigateToGoogle = () => {
     window.open("https://www.google.com", "_blank");
@@ -30,9 +29,9 @@ const Login = () => {
   const onSubmit = (data) => console.log(data);
 
 
-  // function handleReveal() {
-  //   reveal ? setReveal(false) : setReveal(true);
-  // }
+  function handleReveal() {
+    reveal ? setReveal(false) : setReveal(true);
+  }
   return (
     <>
       <main className="main-container">
@@ -59,11 +58,15 @@ const Login = () => {
 
               <Form.Group className="mb-2" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Enter your password" {...register("password")} /> 
+                <div className="flex d-flex pswrd-div">  
+                <Form.Control value={password} type={reveal ? "text" : "password"}  placeholder="Enter your password" {...register("password")} onChange={(e) => setPassword(e.target.value)}  /> 
+                  <div className="eye" onClick={handleReveal}>
+                  {reveal ? <LuEye/> : <LuEyeOff/>}
+                  {/* onClick={() => setReveal(!reveal)} */}
+                  </div>
+                </div>
                   <span className="text-danger">{errors.password?.message}</span>
-                  {/* <button className="eye" onClick={handleReveal}> {reveal ? <LuEye/> : <LuEyeOff/>} </button> */}
               </Form.Group>
-              {/* inputMode={reveal ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} className="password"  */}
               <Form.Group
                 className="mb-3 d-flex justify-content-between gap-5"
                 controlId="formBasicCheckbox"

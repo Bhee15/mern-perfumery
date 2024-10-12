@@ -21,10 +21,18 @@
     line-height: 33.6px;
 }
 
-/* input[type="checkbox"] {
-    accent-color: var(--purple);
-  } */
+/* checkbox */
+input[type="checkbox"] {
+    cursor: pointer;
+    box-shadow: none;
+  }
   
+  input[type="checkbox"]:checked{
+    background-color: var(--purple);
+    border: none;
+    box-shadow: none;
+  }
+
 /* .btn-1{
     background-color: var(--purple);
     border-radius: 8px;
@@ -35,12 +43,18 @@
     font-weight: 500;
     font-size: 20px;
 } */
-/* .eye{
+
+/* password */
+.pswrd-div{
     position: relative;
-    bottom: 3rem;
+}
+.eye{
+    position: absolute;
     left: 28rem;
-    border: none;
-} */
+    top: 0.5rem;
+    cursor: pointer;
+}
+/* google btn */
 .btn-2{
     width: 100%;
     max-width: 482px;
@@ -48,6 +62,7 @@
     border-radius: 15px;
     background-color: white;
 }
+/* signup and login link */
 .link{
     color: var(--purple);
 }
@@ -60,5 +75,10 @@
         padding-top: 0;
     }
     
+    .eye{
+        position: absolute;
+        left: 17.5rem;
+        top: 0.5rem;
+    }
     
 }
