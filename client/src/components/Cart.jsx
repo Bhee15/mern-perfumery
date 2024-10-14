@@ -34,7 +34,7 @@ const Cart = () => {
               </div>
               <div className='col item-detail d-flex flex-column m-0 p-0 ps-3'>
                 <h4 className='item-title fw-bold'>{title}</h4>
-                <div className='d-flex gap-2 align-items-center'>
+                <div className='d-flex align-items-center'>
                   <button className='subtract-item-btn' onClick={()=>handleDecreaseQuantity(id)}>-</button>
                   <p className='item-number'> {cartItem.quantity} </p>
                   <button className='add-item-btn' onClick={()=>handleIncreaseQuantity(id)}>+</button>
@@ -55,7 +55,7 @@ const Cart = () => {
         <div className='checkout-container'>
           <div className='checkout d-flex justify-content-between'>
             <p className='checkout-head'>Sub Total</p>
-            <p className='checkout-price'>18,000</p>
+            <p className='checkout-price'>{calcTotalPrice.toLocaleString()} </p>
           </div>
           <div className='checkout d-flex justify-content-between'>
             <p className='checkout-head'>Delivery</p>

@@ -109,7 +109,7 @@ const Signup = () => {
               </svg>
               Continue with Google
             </button>
-       <p className='mt-3'>Already have an account ? <Link to="/auth/login" className='text-decoration-none link'>Log In</Link></p>
+       <p className='mt-3 link-pTag'>Already have an account ? <Link to="/auth/login" className='text-decoration-none link'>Log In</Link></p>
       </div>
       </form>
       </div>

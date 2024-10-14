@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import ratingImg from "/src/assets/Star.svg";
 import products from "../product.json";
 import CartContext from "../context/CartContext";
+import { IoIosCheckmark } from "react-icons/io";
 
 // const Product = ({handleAddToCart,cart}) => {}
 const Product = () => {
@@ -42,7 +43,7 @@ const Product = () => {
                     N{discountPrice}
                   </span>
                 </Card.Text>
-                <button disabled={isItemInCart(id)} onClick={()=>handleAddToCart(product)} className="add-to-cart-btn w-100"> {isItemInCart(id) ? "Added to Cart" : "Add to Cart"}</button>
+                <button disabled={isItemInCart(id)} onClick={()=>handleAddToCart(product)} className="add-to-cart-btn w-100"> {isItemInCart(id) ?"Added to Cart" : "Add to Cart"}</button>
               </Card.Body>
             </Card>
           );

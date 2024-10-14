@@ -63,6 +63,7 @@ const Login = () => {
                   <div className="eye" onClick={handleReveal}>
                   {reveal ? <LuEye/> : <LuEyeOff/>}
                   {/* onClick={() => setReveal(!reveal)} */}
+                  {/* onClick={() => handleReveal(!reveal)} */}
                   </div>
                 </div>
                   <span className="text-danger">{errors.password?.message}</span>
@@ -114,7 +115,7 @@ const Login = () => {
                   Continue with Google
                 </button>
 
-                <p className="mt-3 ">
+                <p className="mt-3 link-pTag">
                   Don't have an account ?{" "}
                   <Link to="/auth/signup" className="text-decoration-none link">
                     Sign Up

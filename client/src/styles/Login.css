@@ -20,6 +20,9 @@
     font-size: 28px;
     line-height: 33.6px;
 }
+input{
+    font-family: var(--ff-outfit);
+}
 
 /* checkbox */
 input[type="checkbox"] {
@@ -63,6 +66,11 @@ input[type="checkbox"] {
     background-color: white;
 }
 /* signup and login link */
+.link-pTag{
+    font-family: var(--ff-outfit);
+    font-size: 18px;
+    text-align: center;
+}
 .link{
     color: var(--purple);
 }

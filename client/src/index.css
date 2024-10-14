@@ -146,13 +146,13 @@ nav h1{
 }
 .subtract-item-btn{
     border: none;
-    height: 18.61px;
-    width: 18.61px;
-    border-radius: 2.79px;
     background-color: #d2d2d2;
     /* justify-content: center;
     align-items: center;
     text-align: justify; */
+    height: 18.61px;
+    width: 18.61px;
+    border-radius: 2.79px;
     font-size: 12.1px;
     font-weight: 400;
     font-family: var(--ff-poppins);
@@ -160,7 +160,8 @@ nav h1{
 .item-number{
     width: 18.61px;
     height: 18.61px;
-    padding: 9.3px;
+    margin: 9.3px;
+    text-align: center;
     font-size: 12.1px;
     font-weight: 400;
     font-family: var(--ff-poppins);
@@ -169,7 +170,7 @@ nav h1{
     background-color: var(--purple);
     /* justify-content: center;
     align-items: center;
-    text-align: justify; */
+    text-align: center; */
     color: #fefeff;
     border: none;
     border-radius: 2.79px;
@@ -208,8 +209,8 @@ nav h1{
 }
 .checkout-price{
     font-size: 16px;
-    font-weight: 800;
-    font-family: newrial-gotesk;
+    font-weight: 600;
+    font-family: var(--ff-poppins);
     height: 19px;
 }
 
@@ -260,9 +261,16 @@ nav h1{
   font-size: 14.7px;
 }
 
+.gateway-image{
+  width: 77.58px;
+  height: 76.76px;
+  border-radius: 5.72px;
+}
+
 .gateway-quantity{
   font-weight: 500;
   font-size: 14.7px;
+  font-family: var(--ff-poppins);
   color: var(--purple);
 }
 
@@ -272,17 +280,14 @@ nav h1{
 }
 
 .gateway-amount{
-  width: 61px;
-  height: 20px;
   font-weight: 700;
+  font-family: var(--ff-poppins);
   font-size: 16.33px;
   color: rgba(0, 32, 17, 1);
   ;
 }
 
 .gateway-total{
-  /* width: 87px;
-  height: 20px; */
   font-weight: 500;
   font-size: 16.33px;
   color: rgba(117, 117, 117, 1);
@@ -290,8 +295,9 @@ nav h1{
 }
 
 .gateway-total-price{
-  width: 76px;
-  height: 25px;
+  /* width: 76px;
+  height: 25px; */
+  font-family: var(--ff-poppins);
   font-weight: 700;
   font-size: 21.23px;
   color: rgba(0, 32, 17, 1);
