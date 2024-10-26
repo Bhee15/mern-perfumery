@@ -27,10 +27,10 @@ const ConfirmOrder = (props) => {
         
         <Modal.Body>
           {cart.map((cartItem) => {
-            const { id, image, title, price} = cartItem;
+            const { _id, image, title, price} = cartItem;
             return (
               <div className='container d-flex justify-content-between align-items-center py-2'>
-                <div className='gateway-container d-flex gap-3 align-items-center ' key={id}>
+                <div className='gateway-container d-flex gap-3 align-items-center ' key={_id}>
                   <img src={image} alt='productname' className='gateway-image'/>
                   <div>
                     <p className='gateway-title'>{title}</p>
@@ -40,8 +40,8 @@ const ConfirmOrder = (props) => {
                     </div>
                   </div>
                 </div>
-                <div className=''>
-                  <p className='gateway-amount'>N{cartItem.quantity * price}</p>
+                <div>
+                  <p className='gateway-amount'>N{(cartItem.quantity * price).toLocaleString()}</p>
                 </div>
               </div>
             );
@@ -51,10 +51,7 @@ const ConfirmOrder = (props) => {
             <p className='gateway-total-price'>N{calcTotalPrice.toLocaleString()}</p>
           </div>
 
-          
-      <Link to='/'>
           <button className='w-100 gateway-button'>Start New Order</button>
-      </Link>
         </Modal.Body>
       </Modal>
       <Outlet/>

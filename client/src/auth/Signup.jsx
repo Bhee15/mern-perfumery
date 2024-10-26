@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "../styles/Login.css";
@@ -8,6 +8,8 @@ import frame from "../assets/Divider.png";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpSchema } from '../utils/ValidationSchema';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 // import { LuEye } from "react-icons/lu";
 // import { LuEyeOff } from "react-icons/lu";
 
@@ -16,14 +18,46 @@ const Signup = () => {
     window.open('https://www.google.com', '_blank');
   };
 
+  const [isClicked,setIsClicked] = useState(false);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(signUpSchema),
   });
-  const onSubmit = (data) => console.log(data)
+
+  const onSubmit = async (data) => {
+    setIsClicked(true)
+    try {
+      const req = await fetch("http://localhost:3000/api/auth/signup",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
+      });
+      const res = await req.json();
+      console.log(res);
+      if(!res.success){
+        toast.error(res.errMsg)
+        // alert(res.errMsg)
+      }
+      if(res.success){
+        toast.success(res.message)
+        navigate("/auth/login")
+      }
+      
+    } catch (error) {
+      console.log(error.message);
+      
+    }finally{
+      setIsClicked(false)
+    }
+    console.log(data)
+  };
+  const btnTxt = isClicked ? "loading..." : "Sign Up"
 
   return (
     <>
@@ -69,16 +103,16 @@ const Signup = () => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Confirm password</Form.Label>
-        <Form.Control type="password" placeholder="Enter your password" {...register("confirmPwd")}/>
-        <span className='text-danger'>{errors.confirmPwd?.message}</span>
+        <Form.Control type="password" placeholder="Enter your password" {...register("confirmPassword")}/>
+        <span className='text-danger'>{errors.confirmPassword?.message}</span>
       </Form.Group>
       <Form.Group className="mb-3 d-flex gap-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox"/>
         <Form.Label> I agree to <span>Terms of Service</span> and <span>Privacy Policies</span></Form.Label>
       </Form.Group>
       <div>
-       <button type='submit' className='btn-1 w-100 text-white'>
-          Sign Up
+       <button type='submit' className='btn-1 w-100 text-white' disabled={isSubmitting}>
+         {btnTxt}
         </button>
        <img src={frame} alt="frame-divider" className='mt-2 w-100' />
        <button className='btn-2 w-100 mt-2' type='submit' onClick={navigateToGoogle}>

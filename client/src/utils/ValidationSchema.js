@@ -12,7 +12,7 @@ export const signUpSchema = yup
       .string()
       .required("password is required")
       .min(8, "min length of password should be at least 8 chrs"),
-    confirmPwd: yup
+    confirmPassword: yup
       .string()
       .required("confirm password is required")
       .min(8, "min length of password should be at least 8 chrs")

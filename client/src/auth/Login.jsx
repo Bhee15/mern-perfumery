@@ -8,10 +8,14 @@ import frame from "../assets/Divider.png";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signInSchema } from "../utils/ValidationSchema";
+import toast from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 import { LuEye } from "react-icons/lu";
-import { LuEyeOff } from "react-icons/lu";
+import { LuEyeOff } from "react-icons/lu"
 
 const Login = () => {
+  const [isClicked,setIsClicked] = useState(false);
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [reveal, setReveal] = useState(false);
   
@@ -22,12 +26,40 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors,isSubmitting },
   } = useForm({
     resolver: yupResolver(signInSchema),
   });
-  const onSubmit = (data) => console.log(data);
 
+  const onSubmit = async(data) => {
+    setIsClicked(true)
+    try {
+      const req = await fetch("http://localhost:3000/api/auth/signin",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify(data)
+      });
+      const res = await req.json();
+      console.log(res);
+      if(!res.success){
+        toast.error(res.errMsg)
+      }
+      if(res.success){
+        toast.success(res.message)
+        localStorage.setItem("perf-token",res.user.token)
+        navigate("/")
+      }
+      
+    } catch (error) {
+      console.log(error.message);
+    }finally{
+      setIsClicked(false)
+    }
+    console.log(data);
+  };
+   const btnTxt = isClicked ? "loading..." : "Sign In"
 
   function handleReveal() {
     reveal ? setReveal(false) : setReveal(true);
@@ -78,8 +110,8 @@ const Login = () => {
                 </Link>
               </Form.Group>
               <div>
-                <button type="submit" className="btn-1 w-100 text-white">
-                  Sign In
+                <button type="submit" className="btn-1 w-100 text-white" disabled={isSubmitting}>
+                {btnTxt}
                 </button>
                 <img src={frame} alt="frame-divider" className="mt-2 w-100" />
                 <button

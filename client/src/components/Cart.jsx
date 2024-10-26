@@ -4,11 +4,25 @@ import Modal from 'react-bootstrap/Modal';
 import ConfirmOrder from './ConfirmOrder';
 import products from "../product.json";
 import CartContext from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+
 
 // const Cart = ({cart,removeItem,calcTotalPrice,handleIncreaseQuantity,handleDecreaseQuantity}) => {}
 const Cart = () => {
   const {cart,removeItem,calcTotalPrice,handleIncreaseQuantity,handleDecreaseQuantity} = useContext(CartContext);
   const [modalShow, setModalShow] = useState(false);
+  const token = localStorage.getItem("perf-token");
+  const navigate = useNavigate()
+  function handle(){
+    if(token){
+      setModalShow(true)
+    }
+    if(!token){
+      toast.error("guy sign in fess!")
+      navigate("/auth/login")
+    }
+  }
   return (
     <>
     <main className='cart-container d-flex flex-column justify-content-center gap-2'>
@@ -23,11 +37,11 @@ const Cart = () => {
           )}
         </div>
         {cart.map((cartItem) => {
-          const { id, title, price, button, image } = cartItem;
+          const { _id, title, price, button, image } = cartItem;
           return (
             <div
               className='row gap-3 align-items-center py-0 my-0 mb-3'
-              key={id}
+              key={_id}
             >
               <div className='item-img'>
                 <img className='item-img' src={image} alt='product image' />
@@ -35,13 +49,13 @@ const Cart = () => {
               <div className='col item-detail d-flex flex-column m-0 p-0 ps-3'>
                 <h4 className='item-title fw-bold'>{title}</h4>
                 <div className='d-flex align-items-center'>
-                  <button className='subtract-item-btn' onClick={()=>handleDecreaseQuantity(id)}>-</button>
+                  <button className='subtract-item-btn' onClick={()=>handleDecreaseQuantity(_id)}>-</button>
                   <p className='item-number'> {cartItem.quantity} </p>
-                  <button className='add-item-btn' onClick={()=>handleIncreaseQuantity(id)}>+</button>
+                  <button className='add-item-btn' onClick={()=>handleIncreaseQuantity(_id)}>+</button>
                 </div>
                 <div className='d-flex gap-4 m-0 mt-1'>
                   <p className='item-price'>N{price}</p>
-                  <button className='remove-btn' onClick={()=>removeItem(id)}>remove</button>
+                  <button className='remove-btn' onClick={()=>removeItem(_id)}>remove</button>
                 </div>
               </div>
             </div>
@@ -63,10 +77,10 @@ const Cart = () => {
           </div>
           <div className='checkout d-flex justify-content-between'>
             <p className='checkout-head'>Total</p>
-            <p className='checkout-price'> N {calcTotalPrice.toLocaleString()} </p>
+            <p className='checkout-price'> N {(calcTotalPrice + 8000).toLocaleString()} </p>
           </div>
         </div>
-        <button className='w-100 checkout-btn' onClick={() => setModalShow(true)}>
+        <button className='w-100 checkout-btn' onClick={handle}>
           Confirm Order{' '}
         </button>
           </>

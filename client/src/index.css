@@ -229,7 +229,7 @@ nav h1{
 /* confirm-order modal */
 .custom-modal-width{
   max-width: 100%;
-  padding-top: 29px;
+  padding-top: 22%;
   padding-left: 44px;
   font-family: newrial-gotesk;
 }
@@ -525,7 +525,7 @@ nav h1{
 
 /* modal */
 .custom-modal-width{
-  padding: 0;
+  padding-top: 30%;
 }
 }
 
@@ -546,4 +546,10 @@ nav h1{
         /* height: 100%; */
         margin-top: 50px;
     }
+
+    /* modal */
+.custom-modal-width{
+  padding-bottom: 22%;
+}
+
 }
