@@ -1,4 +1,5 @@
 import { createContext,useState,useEffect } from "react";
+import toast from "react-hot-toast";
 
 const CartContext = createContext();
 const cartItemFromLocalStoragePerf = JSON.parse(localStorage.getItem("cart")) || []
@@ -13,7 +14,7 @@ export const CartProvider = ({children})=>{
     }
     const verified = async ()=>{
       try {
-        const req = await fetch("http://localhost:3000/api/auth/verify",{
+        const req = await fetch("https://mern-perfumery.onrender.com/api/auth/verify",{
           headers:{
             Authorization:`Bearer ${token}`
           }
@@ -41,6 +42,7 @@ export const CartProvider = ({children})=>{
           const newItem = {...item, quantity:1}
           setCart([...cart,newItem]);
           console.log([...cart,newItem]);
+          toast.success("added to cart")
           
         }
         console.log("added");
