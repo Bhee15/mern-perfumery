@@ -16,7 +16,6 @@ import { LuEyeOff } from "react-icons/lu"
 const Login = () => {
   const [isClicked,setIsClicked] = useState(false);
   const navigate = useNavigate();
-  const [password, setPassword] = useState("");
   const [reveal, setReveal] = useState(false);
   
   const navigateToGoogle = () => {
@@ -91,14 +90,14 @@ const Login = () => {
               <Form.Group className="mb-2" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <div className="flex d-flex pswrd-div">  
-                <Form.Control value={password} type={reveal ? "text" : "password"}  placeholder="Enter your password" {...register("password")} onChange={(e) => setPassword(e.target.value)}  /> 
+                <Form.Control  type={reveal ? "text" : "password"}  placeholder="Enter your password" {...register("password")}  /> 
                   <div className="eye" onClick={handleReveal}>
                   {reveal ? <LuEye/> : <LuEyeOff/>}
                   {/* onClick={() => setReveal(!reveal)} */}
                   {/* onClick={() => handleReveal(!reveal)} */}
                   </div>
                 </div>
-                  <span className="text-danger">{errors.password?.message}</span>
+                  <span className="text-danger">{errors?.password?.message}</span>
               </Form.Group>
               <Form.Group
                 className="mb-3 d-flex justify-content-between gap-5"
