@@ -48,7 +48,7 @@ const ConfirmOrder = (props) => {
           })}
           <div className='container d-flex justify-content-between align-items-center py-2'>
             <p className='gateway-total'>Order Total</p>
-            <p className='gateway-total-price'>N{calcTotalPrice.toLocaleString()}</p>
+            <p className='gateway-total-price'>N{(calcTotalPrice + 8000).toLocaleString()}</p>
           </div>
 
           <button className='w-100 gateway-button'>Start New Order</button>

@@ -4,19 +4,22 @@ import Card from "react-bootstrap/Card";
 import ratingImg from "/src/assets/Star.svg";
 import products from "../product.json";
 import CartContext from "../context/CartContext";
-import { IoIosCheckmark } from "react-icons/io";
+// import { IoIosCheckmark } from "react-icons/io";
 
 // const Product = ({handleAddToCart,cart}) => {}
 const Product = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [data,setData] = useState([])
   const getData = async()=>{
     try{
+      setIsLoading(true);
       const req = await fetch("https://mern-perfumery.onrender.com/api/product/products");
       const res = await req.json();
       console.log(res.product);
-      setData(res.product)
+      setData(res.product);
+      setIsLoading(false);
     } catch (error) {
-
+      console.log(error.message);
     }
     
   }
@@ -29,6 +32,10 @@ const Product = () => {
   const isItemInCart = (itemId)=> cart.some((product)=>product._id === itemId)
   return (
     <>
+        <div className="text-center">
+          {isLoading ? 
+          <h1 className="text-success">Loading...</h1> : null}
+        </div>
       <main className="d-flex flex-wrap justify-content-between gap-4 pt-2">
         {data.map((product) => {
             const {image,_id,title,price,discountPrice,rateCount,rating} = product
@@ -60,7 +67,7 @@ const Product = () => {
                     N{discountPrice}
                   </span>
                 </Card.Text>
-                <button disabled={isItemInCart(_id)} onClick={()=>handleAddToCart(product)} className="add-to-cart-btn w-100"> {isItemInCart(_id) ?"Added to Cart" : "Add to Cart"}</button>
+                <button disabled={isItemInCart(_id)} onClick={()=>handleAddToCart(product)} className="add-to-cart-btn w-100"> {isItemInCart(_id) ? "Added to Cart" : "Add to Cart"}</button>
               </Card.Body>
             </Card>
           );
