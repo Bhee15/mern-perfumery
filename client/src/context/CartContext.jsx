@@ -9,7 +9,8 @@ export const CartProvider = ({children})=>{
     const [cart, setCart] = useState(cartItemFromLocalStoragePerf);
     const token = localStorage.getItem("perf-token");
     function logout(){
-      localStorage.removeItem("perf-token")
+      localStorage.removeItem("perf-token");
+      localStorage.removeItem("fullname");
       setUser(null)
     }
     const verified = async ()=>{
@@ -77,6 +78,13 @@ export const CartProvider = ({children})=>{
         });
         setCart(updatedCart);
       };
+
+      // useEffect(()=>{
+      //   if (token) {
+      //     verified()
+      //   };
+      // },[token]);
+
       useEffect(()=>{
         localStorage.setItem("cart",JSON.stringify(cart));
         verified()

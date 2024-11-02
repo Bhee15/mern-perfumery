@@ -6,16 +6,21 @@ import menuIcon from "../assets/ci_hamburger-lg.svg";
 import { Link } from "react-router-dom";
 import CartContext from "../context/CartContext";
 import LogOut from "./LogOut";
+import arrowUp from "../assets/arrow-up.svg";
+import dropDownIcon from "../assets/arrow-down.svg"
 
 const OffCanvass = ({ name, ...props }) => {
   const [show, setShow] = useState(false);
-  const {user} = useContext(CartContext)
-
+  const [isReveal, setIsReveal] = useState(false);
+  const {user} = useContext(CartContext);
+  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const token = localStorage.getItem("perf-token");
 
-
+function toggleIsRevealed() {
+  isReveal ? setIsReveal(false) : setIsReveal(true);
+}
   return (
     <>
       <div onClick={handleShow}>
@@ -26,9 +31,28 @@ const OffCanvass = ({ name, ...props }) => {
           {token ? 
           <> 
           <div className="mt-3 text-center">
-          <h2>{`Hi, ${user?.firstName} ${user?.lastName}`}</h2> 
-          <LogOut/> 
-          </div>
+          <h2>{`Hi, ${user?.firstName} ${user?.lastName}`}
+          <span className="ms-3">
+                    {isReveal ?
+                     <img
+                     onClick={toggleIsRevealed}
+                       src={arrowUp}
+                       alt="arrow-up-icon"
+                       role="button"
+                     />
+                     :
+                     <img
+                     onClick={toggleIsRevealed}
+                     src={dropDownIcon}
+                     alt="drop-down-icon"
+                     role="button"
+                     />
+                    }
+                  </span>
+                    </h2> 
+                  <div >
+                    {isReveal && <LogOut/>}</div>
+              </div>
           </> 
           : 
            <div className="d-flex flex-column container mt-3 gap-3">

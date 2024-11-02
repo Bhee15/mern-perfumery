@@ -11,6 +11,7 @@ const Navbar = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isReveal, setIsReveal] = useState(false);
   const {user} = useContext(CartContext)
+  const fullName = localStorage.getItem("fullname")
   const token = localStorage.getItem("perf-token")
   function toggleIsReveal(){
     isReveal ? setIsReveal(false) : setIsReveal(true)
@@ -27,7 +28,7 @@ const Navbar = () => {
             <>
               <div className="position-relative">
                 <h1>
-                  {`Hi, ${user?.firstName} ${user?.lastName}`}
+                  {`Hi, ${fullName}`}
                   <span className="ms-3">
                     {isReveal ?
                      <img
